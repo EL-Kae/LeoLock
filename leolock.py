@@ -40,6 +40,7 @@ About:
 import pyaes
 import os
 import sqlite3
+import pbkdf2
 
 '''
 The main function greets the user with a prompt, creates a master key, IV and a
@@ -167,7 +168,7 @@ def createTable(currentCursor):
 	currentCursor.execute('''CREATE TABLE IF NOT EXISTS USERS(
                         	userName TEXT PRIMARY KEY   NOT NULL,
                         	passWord    TEXT            NOT NULL,
-                        	flag        TEXT            NOT NULL);''')
+                        	flag        TEXT            NOT NULL");''')
 
 
 '''
@@ -175,6 +176,8 @@ Encrypts the password according the mode of operation using the pyaes library.
 The encrypted password is then returned.
 '''
 def encryptPassword(currentFlag, currentPW, currentKey, currentIV):
+	pbkdfKey = pbkdf2.crypt(currentPW)
+
 	if currentFlag == "ecb":	#Encrypts in ECB mode.
 		aes = pyaes.AESModeOfOperationECB(currentKey)
 		plaintext = currentPW.ljust(16,"\0")
