@@ -1,0 +1,42 @@
+About this application:
+    Leo's Lock implements the homework assignment. This application will take in
+    all new username/password entries and store them in a sqlite3 database. The 
+    passwords are encrypted according to the mode of operation indicated by the
+    user. The flag is stored with the password, along with the username. If a
+    username is typed in without a password, the application will search for a 
+    match in the database and print out its password. Username and password 
+    combinations can be checked as well by typing in the username and the 
+    potential password. When a new entry is about to be created the user is 
+    prompt to choose a mode of operations. The mode of operations that are 
+    supported are ECB, CBC, and CTR. At its core, this application uses the
+    pyaes library.
+
+Installation:
+    Run "sudo sh setup.sh"
+    This shell script will install the pyaes library from the github repository.
+    This application uses python and a sqlite3 database. However most linux
+    distros and recent versions of Mac OS come preinstalled with python and
+    sqlite3. The python sqlite module is part of Python Standard Library so no
+    further installation is required.
+    
+Usage:
+    python leolock.py
+    
+Final Note:
+    I disagree with the design of this application. A new key should be created
+    for every new entry. A master key would leave the encryption vulnerable. 
+    I first planned on implementing some sort of password based key but this 
+    required the password to be hashed. If the password is hashed it would
+    be impossible to retrieve it at the request of the user. I gave up on this
+    implementation and went forward according to the instructions of this
+    assignment. 
+    
+    I have also tested my applications against sql injection attacks. Using "?"
+    instead of "%s" during sql commands protects the application. I have 
+    attempted a few attacks but all failed. You are all welcome to try! And please 
+    let me know :)
+    
+Thanks,
+Leonardo Kaestner
+    
+    
