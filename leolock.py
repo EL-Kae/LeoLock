@@ -4,7 +4,7 @@ Description:
     read the README file first for further details of this application and 
     installation steps. The database uses only one table, the username is 
     the primary key and must be unique. This statifies all the requirements
-    of this assignment.
+    of this assignment. Well not really.
 
 Usage:
     python leolock.py
@@ -24,7 +24,7 @@ Todo:
     add more print statements so the user knows whats going on. --DONE
     add comments --DONE
     Implement hashing based key system 
-    Implement commands: search, create, login, delete, deleteall, help
+    Implement commands: search, create, login, delete, deleteall, help 
 	
 About:
     By Leonardo Kaestner
