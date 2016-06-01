@@ -23,6 +23,8 @@ Todo:
     finish the "what this does" section --DONE
     add more print statements so the user knows whats going on. --DONE
     add comments --DONE
+    Implement hashing based key system 
+    Implement commands: search, create, login, delete, deleteall, help
 	
 About:
     By Leonardo Kaestner
