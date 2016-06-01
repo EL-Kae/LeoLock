@@ -17,7 +17,8 @@ Installation:
     This application uses python and a sqlite3 database. However most linux
     distros and recent versions of Mac OS come preinstalled with python and
     sqlite3. The python sqlite module is part of Python Standard Library so no
-    further installation is required.
+    further installation is required. Windows user would need to go through a 
+    different installation process.
     
 Usage:
     python leolock.py
@@ -36,7 +37,7 @@ Final Note:
     attempted a few attacks but all failed. You are all welcome to try! And please 
     let me know :)
     
-Thanks,
+Regards,
 Leonardo Kaestner
     
     
