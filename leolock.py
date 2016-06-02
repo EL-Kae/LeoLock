@@ -138,6 +138,10 @@ def main():
 		        	print "Failed to create new entry."
 		        	continue
 
+		        if flagType == "ecb" and userInput.split(" ")[1].len() > 16:
+		        	print "Error! password to long for ecb mode."
+		        	print ""
+
 		        #Encrypts the user's password.
 		        encryptPW = encryptPassword(flagType, userInput.split(" ")[1], \
 		        							masterKey, myIV)
@@ -152,6 +156,7 @@ def main():
 		                                VALUES (?,?,?) ''', currentTuple)
 		        connDB.commit()
 		        print "New entry created."
+
     #game loop ends here
 
     #Deletes the database and closes the connection.
@@ -168,7 +173,7 @@ def createTable(currentCursor):
 	currentCursor.execute('''CREATE TABLE IF NOT EXISTS USERS(
                         	userName TEXT PRIMARY KEY   NOT NULL,
                         	passWord    TEXT            NOT NULL,
-                        	flag        TEXT            NOT NULL");''')
+                        	flag        TEXT            NOT NULL);''')
 
 
 '''
@@ -176,8 +181,6 @@ Encrypts the password according the mode of operation using the pyaes library.
 The encrypted password is then returned.
 '''
 def encryptPassword(currentFlag, currentPW, currentKey, currentIV):
-	pbkdfKey = pbkdf2.crypt(currentPW)
-
 	if currentFlag == "ecb":	#Encrypts in ECB mode.
 		aes = pyaes.AESModeOfOperationECB(currentKey)
 		plaintext = currentPW.ljust(16,"\0")
@@ -211,6 +214,25 @@ def decryptPassword(currentFlag, ciphertext, currentKey, currentIV):
 		aes = pyaes.AESModeOfOperationCTR(currentKey)
 		return aes.decrypt(ciphertext)
     
+
+def cmdSearchUser():
+	pass
+
+def cmdCreate():
+	userInput = raw_input("Please enter <username> <password>: ")
+
+def cmdSearchPassword():
+	userInput = raw_input("Please enter <username> <password>: ")
+
+def cmdDelete():
+	userInput = raw_input("Please enter <username>: ")
+
+def cmdDeleteAll():
+	pass
+
+def cmdHelp():
+	pass	
+
 
 if __name__ == '__main__':
     main()
