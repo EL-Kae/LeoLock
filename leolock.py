@@ -1,10 +1,8 @@
 """	
 Description:
-    This application Leo's Lock, implements the homework assignment. Please 
-    read the README file first for further details of this application and 
-    installation steps. The database uses only one table, the username is 
-    the primary key and must be unique. This statifies all the requirements
-    of this assignment. Well not really.
+    This application Leo's Lock. Please read the README for more information 
+    and installation steps. The database uses only one table, the username is 
+    the primary key and must be unique.
 
 Usage:
     python leolock.py
@@ -23,7 +21,7 @@ Todo:
     finish the "what this does" section --DONE
     add more print statements so the user knows whats going on. --DONE
     add comments --DONE
-    Implement hashing based key system 
+    Implement hashing based key system --DONE
     Implement commands: 
     	-search, 
     	-create, 
@@ -33,8 +31,7 @@ Todo:
     	-help 
 	
 About:
-    By Leonardo Kaestner
-    v 0.1, 04/30/16
+    By Leo Kaestner
 """
 
 import pyaes
@@ -213,10 +210,6 @@ def decryptPassword(currentFlag, ciphertext, currentKey, currentIV):
 	if currentFlag == "ctr":	#Decrypts in CTR mode.
 		aes = pyaes.AESModeOfOperationCTR(currentKey)
 		return aes.decrypt(ciphertext)
-    
-
-def cmdSearchUser():
-	pass
 
 def cmdCreate():
 	userInput = raw_input("Please enter <username> <password>: ")
@@ -226,13 +219,6 @@ def cmdSearchPassword():
 
 def cmdDelete():
 	userInput = raw_input("Please enter <username>: ")
-
-def cmdDeleteAll():
-	pass
-
-def cmdHelp():
-	pass	
-
 
 if __name__ == '__main__':
     main()
